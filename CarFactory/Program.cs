@@ -2,66 +2,73 @@
 {
     static void Main(string[] args)
     {
-        List<Araba> arabalar = new List<Araba>();
-        string kullaniciCevabi;
+        List<Car> cars = new List<Car>(); // Arabaları saklamak için liste
+        string userResponse;
 
-    AnaMenu:
-        Console.Write("Araba üretmek istiyor musunuz? (E/H): ");
-        kullaniciCevabi = Console.ReadLine().Trim().ToLower();
+    MainMenu:
+        Console.Write("Bir araba üretmek ister misiniz? (E/H): ");
+        userResponse = Console.ReadLine().Trim().ToLower();
 
-        if (kullaniciCevabi == "e")
+        if (userResponse == "e")
         {
-            string seriNumarasi, marka, model, renk;
-            int kapiSayisi;
+            string serialNumber, brand, model, color;
+            int doorCount;
 
             Console.Write("Seri Numarası: ");
-            seriNumarasi = Console.ReadLine();
+            serialNumber = Console.ReadLine();
 
             Console.Write("Marka: ");
-            marka = Console.ReadLine();
+            brand = Console.ReadLine();
 
             Console.Write("Model: ");
             model = Console.ReadLine();
 
             Console.Write("Renk: ");
-            renk = Console.ReadLine();
+            color = Console.ReadLine();
 
-        KapıSayisiGirişi:
+        DoorCountEntry:
             try
             {
                 Console.Write("Kapı Sayısı: ");
-                string kapiSayisiInput = Console.ReadLine();
-                kapiSayisi = int.Parse(kapiSayisiInput);
+                string doorCountInput = Console.ReadLine();
+                doorCount = int.Parse(doorCountInput);
 
                 // Başarılı giriş, döngüden çık
-                goto ArabaOlustur;
+                goto CreateCar;
             }
             catch (FormatException)
             {
                 Console.WriteLine("Hatalı giriş! Kapı sayısı için lütfen sayısal bir değer giriniz.");
-                goto KapıSayisiGirişi;
+                goto DoorCountEntry;
             }
 
-        ArabaOlustur:
-            Araba yeniAraba = new Araba(seriNumarasi, marka, model, renk, kapiSayisi);
-            arabalar.Add(yeniAraba);
+        CreateCar:
+            Car newCar = new Car(serialNumber, brand, model, color, doorCount);
+            cars.Add(newCar); // Arabayı listeye ekle
 
             Console.WriteLine("Araba başarıyla üretildi!");
 
-            goto AnaMenu;
+            goto MainMenu;
         }
-        else if (kullaniciCevabi != "h")
+        else if (userResponse != "h")
         {
             Console.WriteLine("Geçersiz cevap! Lütfen 'E' veya 'H' ile yanıt veriniz.");
-            goto AnaMenu;
+            goto MainMenu;
         }
 
-        Console.WriteLine("\nÜretilen Arabalar:");
-        foreach (var araba in arabalar)
-        {
-            Console.WriteLine($"Seri Numarası: {araba.SeriNumarasi}, Marka: {araba.Marka}");
-        }
+        // Üretilen tüm arabaları yazdır
+        GetAllCars(cars);
 
         Console.WriteLine("Program sonlandı.");
+    }
+
+    // Arabaları listeleyen metod
+    static void GetAllCars(List<Car> cars)
+    {
+        Console.WriteLine("\nÜretilen Arabalar:");
+        foreach (var car in cars)
+        {
+            Console.WriteLine($"Seri Numarası: {car.SerialNumber}, Marka: {car.Brand}, Model: {car.Model}, Renk: {car.Color}, Kapı Sayısı: {car.DoorCount}, Üretim Tarihi: {car.ProductionDate}");
+        }
     }
 }

@@ -1,20 +1,20 @@
-﻿public class Araba
+﻿public class Car
 {
-    public DateTime UretimTarihi { get; set; }
-    public string SeriNumarasi { get; set; }
-    public string Marka { get; set; }
+    public DateTime ProductionDate { get; set; }
+    public string SerialNumber { get; set; }
+    public string Brand { get; set; }
     public string Model { get; set; }
-    public string Renk { get; set; }
-    public int KapiSayisi { get; set; }
+    public string Color { get; set; }
+    public int DoorCount { get; set; }
 
     // Parametreli constructor
-    public Araba(string seriNumarasi, string marka, string model, string renk, int kapiSayisi)
+    public Car(string serialNumber, string brand, string model, string color, int doorCount)
     {
-        UretimTarihi = DateTime.Now;
-        SeriNumarasi = seriNumarasi;
-        Marka = marka;
+        ProductionDate = DateTime.Now; // Üretim tarihi otomatik olarak atanır
+        SerialNumber = serialNumber;
+        Brand = brand;
         Model = model;
-        Renk = renk;
-        KapiSayisi = kapiSayisi;
+        Color = color;
+        DoorCount = doorCount;
     }
 }
