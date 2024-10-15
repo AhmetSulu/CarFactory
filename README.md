@@ -30,3 +30,11 @@ This program is a console application that allows users to manufacture cars. The
 1. Copy this code into a C# project.
 2. Ensure you have a C# development environment (e.g., Visual Studio).
 3. Run the program and start manufacturing cars.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any questions or support, please email (ahmet.sulu1993@gmail.com)
