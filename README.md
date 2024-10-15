@@ -1,32 +1,32 @@
-# Araba Üretim Programı
+# Car Manufacturing Program
 
-Bu program, kullanıcıların arabalar üretmesini sağlayan bir konsol uygulamasıdır. Üretilen arabalar bir listeye eklenir ve program sonlandığında bu liste ekrana yazdırılır.
+This program is a console application that allows users to manufacture cars. The produced cars are added to a list, and when the program ends, this list is displayed on the screen.
 
-## Özellikler
+## Features
 
-- Kullanıcıdan araba üretmek isteyip istemediği sorulur.
-- Üretim tarihini otomatik olarak atayan arabalar üretilir.
-- Kapı sayısı gibi kullanıcıdan alınan bilgiler doğrulama yapılır.
-- Üretilen arabalar, seri numarası, marka, model, renk, kapı sayısı ve üretim tarihi bilgileriyle birlikte listelenir.
+- The user is asked if they want to manufacture a car.
+- Cars are produced with an automatically assigned production date.
+- Information such as the number of doors is validated when entered by the user.
+- The produced cars are listed with their serial number, brand, model, color, number of doors, and production date.
 
-## Kullanım
+## Usage
 
-1. Program çalıştırıldığında, kullanıcıya bir araba üretmek isteyip istemediği sorulur. (E/H)
-   - `E` seçeneği seçilirse, kullanıcıdan araba bilgileri (seri numarası, marka, model, renk, kapı sayısı) alınır.
-   - `H` seçeneği seçilirse, program sonlandırılır ve üretilen arabaların listesi ekrana yazdırılır.
+1. When the program starts, the user is asked whether they want to manufacture a car (Y/N).
+   - If `Y` is selected, the user is prompted to enter car information (serial number, brand, model, color, number of doors).
+   - If `N` is selected, the program terminates and displays the list of produced cars.
+   
+2. User input, such as the number of doors, is validated to ensure it's numeric. In case of incorrect input, an error message is shown, and the user is prompted to re-enter the information.
 
-2. Kapı sayısı gibi kullanıcıdan alınan bilgilerin sayısal olup olmadığı kontrol edilir. Hatalı girişlerde uyarı mesajı gösterilir ve tekrar giriş yapılması istenir.
+3. When the program ends, the information of all produced cars is printed to the screen.
 
-3. Üretilen tüm arabaların bilgileri program sonlandığında ekrana yazdırılır.
+## Code Explanation
 
-## Kod Açıklamaları
+- **`Car` Class**: Represents a car object. The production date is automatically assigned.
+- **`Program` Class**: Manages the main functionality of the program, gathers user input, manufactures cars, and prints the list of cars.
+- **`GetAllCars` Method**: Displays the information of all produced cars.
 
-- **`Car` Sınıfı**: Araba nesnesini temsil eder. Üretim tarihi otomatik olarak atanır.
-- **`Program` Sınıfı**: Programın ana işleyişini sağlar. Kullanıcıdan bilgi alır, araba üretir ve listeyi ekrana yazdırır.
-- **`GetAllCars` Metodu**: Üretilen tüm arabaların bilgilerini ekrana yazdırır.
+## Setup
 
-## Kurulum
-
-1. Bu kodu bir C# projesine kopyalayın.
-2. Projeyi çalıştırmak için bir C# geliştirme ortamına (örneğin, Visual Studio) sahip olun.
-3. Programı çalıştırarak arabalar üretmeye başlayın.
+1. Copy this code into a C# project.
+2. Ensure you have a C# development environment (e.g., Visual Studio).
+3. Run the program and start manufacturing cars.
